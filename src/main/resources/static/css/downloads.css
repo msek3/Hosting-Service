@@ -1,0 +1,20 @@
+.table{
+    color: white;
+    margin: auto;
+    width: 40%;
+}
+
+.descript{
+    color: white;
+    font-size: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.downloads, .downloadsInstance{
+    width: 30%;
+}
+
+.downloadsInstance{
+    text-align: center;
+}
