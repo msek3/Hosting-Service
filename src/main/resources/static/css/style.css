@@ -1,0 +1,16 @@
+
+.navbar-brand.navText{
+    color: white;
+    margin-right: 25px;
+}
+
+
+body{
+    background-image: url("../img/background.jpg");
+    background-size: 100%;
+}
+
+nav > .container-fluid > ul.nav > li > a {
+    text-decoration: none;
+    color: white;
+}
