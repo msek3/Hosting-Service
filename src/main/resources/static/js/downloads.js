@@ -44,7 +44,8 @@ function createChart() {
                 dates.push(day+"."+month);
             }
 
-            document.getElementById('avgValue').innerHTML = "Średnia ilośc pobrań w ciągu dnia wynosi: " + summ;
+            document.getElementById('avgValue').innerHTML = "Średnia ilośc pobrań w ciągu dnia wynosi: " + summ/7;
+            document.getElementById('summValue').innerHTML = "Łączna suma pobrań w ciągu tygodnia wynosi: " + summ;
 
             var ctx = document.getElementById('myChart');
             var myChart = new Chart(ctx, {
