@@ -7,6 +7,7 @@ import siwz.files.FileDispatcher;
 import siwz.files.FileIdValidator;
 import siwz.model.AppFile;
 import siwz.model.AppUser;
+import siwz.model.DownloadsPerDay;
 import siwz.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class FileServiceImp implements FileService {
@@ -40,6 +42,14 @@ public class FileServiceImp implements FileService {
         List<AppFile> files = fileDao.findFilesByUser(user);
         files.forEach(file -> file.setOwner(null));
         return files;
+    }
+
+    @Override
+    public List<Long> getDownloadsFrom7Days() {
+        List<DownloadsPerDay> downloads = fileDao.getFilesFrom7Days();
+        return downloads.stream()
+                .map(DownloadsPerDay::getAmount)
+                .collect(Collectors.toList());
     }
 
     @Override

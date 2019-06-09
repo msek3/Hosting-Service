@@ -15,4 +15,6 @@ public interface FileService {
     List<AppFile> getTop10Files();
 
     List<AppFile> getFilesByUser(AppUser user);
+
+    List<Long> getDownloadsFrom7Days();
 }
