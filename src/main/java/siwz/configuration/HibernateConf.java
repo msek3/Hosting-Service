@@ -1,9 +1,6 @@
 package siwz.configuration;
 
-import siwz.model.AppFile;
-import siwz.model.AppRole;
-import siwz.model.AppUser;
-import siwz.model.UserFiles;
+import siwz.model.*;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -26,7 +23,7 @@ public class HibernateConf {
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setAnnotatedClasses(AppRole.class, AppUser.class, AppFile.class, UserFiles.class);
+        sessionFactory.setAnnotatedClasses(AppRole.class, AppUser.class, AppFile.class, UserFiles.class, DownloadsPerDay.class);
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
