@@ -42,7 +42,10 @@ function createChart() {
                 if (month.toString().length == 1) month = "0" + month.toString();
                 if (day.toString().length == 1) day = "0" + day.toString();
                 dates.push(day+"."+month);
+
             }
+
+            dates = dates.reverse();
 
             document.getElementById('avgValue').innerHTML = "Średnia ilośc pobrań w ciągu dnia wynosi: " + (summ/7).toFixed(2);
             document.getElementById('summValue').innerHTML = "Łączna suma pobrań w ciągu tygodnia wynosi: " + summ;
