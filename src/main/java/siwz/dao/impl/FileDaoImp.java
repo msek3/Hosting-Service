@@ -1,5 +1,6 @@
 package siwz.dao.impl;
 
+import org.thymeleaf.expression.Lists;
 import siwz.dao.FileDao;
 import siwz.exception.FileNotExistingException;
 import siwz.model.AppFile;
@@ -12,6 +13,7 @@ import siwz.model.DownloadsPerDay;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -91,6 +93,7 @@ public class FileDaoImp extends FileDao {
             query.setParameter("fromDate", LocalDateTime.now().minusDays(7));
             results.addAll(query.getResultList());
         });
+        Collections.reverse(results);
         return results;
     }
 }
